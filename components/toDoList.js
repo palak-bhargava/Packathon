@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/Fontisto';
 import Icon2 from 'react-native-vector-icons/Ionicons';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,68 +15,86 @@ import {
     FlatList,
 } from 'react-native';
 
-const favorites = ['Place A', 'Place B', 'Place C', 'Place D', 'Place E'];
+
+
 //favorites.push("Place D");
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+const favorites = ['Palau de la M\u00fasica Catalana', 'Teresa Carles', 'Museo Mar\u00edtim de Barcelona', 'Gothic Quarter (Barri Gotic)'];
 
 const Item = ({ place }) => (
     <View style={styles.item}>
         <View style={{ flexDirection: 'row' }}>
             <Text style={styles.title}>{place}</Text>
-            <TouchableOpacity>
-                <Icon
-                    name="heart"
-                    size={20}
-                    color="red"
-                    style={styles.favButton}
-                />
-            </TouchableOpacity>
         </View>
-
+        <TouchableOpacity>
+            <Icon
+                name="heart"
+                size={20}
+                color="red"
+                style={styles.favButton}
+            />
+        </TouchableOpacity>
     </View>
 );
 const renderItem = ({ item }) => (
     <Item place={item} />
 );
 
-class ToDoList extends Component {
+function ToDoList({ navigation }) {
 
-    render() {
-        showMore = () => {
-            for (let i = 0; i < 5; i++) {
-                favorites.push("Place");
-            }
-            console.log(favorites)
+    /*const [temp, setTemp] = useState("");
+
+    useEffect(() => {
+        fetch('https://utdhackathonflask.herokuapp.com/thingstodo?location=barcelona')
+            .then((response) => response.json())
+            .then(res => {
+                setTemp(res);
+            });
+    })
+    const myArr = JSON.parse(temp);
+    console.log(myArr[0]);
+    showMore = () => {
+        for (let i = 0; i < 5; i++) {
+            favorites.push("Place");
         }
-        return (
-            <SafeAreaView>
-                <View>
-                    <ImageBackground source={require('../assets/images/background.png')} resizeMode="cover" style={styles.background} >
-                        
-                        <View style={styles.container}>
-                        <TouchableOpacity style={styles.backButton}>
+        console.log(favorites)
+    }
+    */
+    return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+            <View>
+                <ImageBackground source={require('../assets/images/background.png')} resizeMode="cover" style={styles.background} >
+
+                    <View style={styles.container}>
+                        <TouchableOpacity style={styles.backButton}
+                            onPress={() => {
+                                navigation.navigate('DuringFlight');
+                            }}
+                        >
                             <Icon
                                 name="arrow-left-l"
                                 color="grey"
                                 size={35}
+
                             />
                         </TouchableOpacity>
-                            <Text style={styles.heading}>Here's some places to go</Text>
-                            <FlatList
-                                data={favorites}
-                                renderItem={renderItem}
-                                keyExtractor={item => item}
-                            />
-                        </View>
-                    </ImageBackground>
+                        <Text style={styles.heading}>Here's some places to go</Text>
+                        <FlatList
+                            data={favorites}
+                            renderItem={renderItem}
+                            keyExtractor={item => item}
+                        />
+                        
+                    </View>
+                </ImageBackground>
 
-                </View>
+            </View>
 
 
-            </SafeAreaView >
-        );
-    }
+        </SafeAreaView >
+    );
+
 }
 
 const styles = StyleSheet.create({
@@ -117,15 +135,17 @@ const styles = StyleSheet.create({
         width: 320,
         marginRight: 15,
         marginTop: 20,
-        alignItems: 'center',
+
         justifyContent: 'center'
     },
 
     title: {
-        fontSize: 20,
+        fontSize: 15,
     },
     favButton: {
-        marginLeft: 200,
+        marginLeft: 270,
+        marginTop: -20,
+        position: 'absolute',
     },
     background: {
         justifyContent: 'center',

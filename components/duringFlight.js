@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/Fontisto';
 import Icon2 from 'react-native-vector-icons/Ionicons';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,7 +15,7 @@ import {
     Dimensions
 } from 'react-native';
 
-const favorites = ['Place A', 'Place B', 'Place C', 'Place D', 'Place E'];
+const favorites = ['Palau de la M\u00fasica Catalana', 'Teresa Carles', 'Museo Mar\u00edtim de Barcelona', 'Gothic Quarter (Barri Gotic)'];
 //favorites.push("Place D");
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -30,14 +30,18 @@ const renderItem = ({ item }) => (
 );
 
 
-class DuringFlight extends Component {
-    render() {
+function DuringFlight({navigation}) {
+    
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
                 <View>
                     <ImageBackground source={require('../assets/images/background.png')} style={styles.background}>
                         <View style={styles.container}>
-                            <TouchableOpacity style={styles.backButton}>
+                            <TouchableOpacity style={styles.backButton}
+                            onPress={()=>{
+                                navigation.navigate('MainScreen');
+                            }}
+                            >
                                 <Icon
                                     name="arrow-left-l"
                                     color="grey"
@@ -47,42 +51,66 @@ class DuringFlight extends Component {
 
                             <Text style={styles.heading}>What are you looking to do tonight?</Text>
                             <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-                                <TouchableOpacity style={styles.nextButton}>
+                                <TouchableOpacity style={styles.nextButton}
+                                onPress={()=>{
+                                    navigation.navigate('ToDoList');
+                                }}
+                                >
                                     <Icon2
                                         name="restaurant"
                                         size={35}
                                     />
                                     <Text>Restaurant</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.nextButton}>
+                                <TouchableOpacity style={styles.nextButton}
+                                onPress={()=>{
+                                    navigation.navigate('ToDoList');
+                                }}
+                                >
                                     <Icon2
                                         name="location"
                                         size={35}
                                     />
                                     <Text>Sights</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.nextButton}>
+                                <TouchableOpacity style={styles.nextButton}
+                                onPress={()=>{
+                                    navigation.navigate('ToDoList');
+                                }}
+                                >
                                     <Icon
                                         name="shopping-bag-1"
                                         size={35}
                                     />
                                     <Text>Shopping</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.nextButton}>
+                                <TouchableOpacity style={styles.nextButton}
+                                onPress={()=>{
+                                    navigation.navigate('ToDoList');
+                                }}
+                                >
                                     <Icon3
                                         name="beach"
                                         size={35}
                                     />
                                     <Text>Beach</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.nextButton}>
+                                <TouchableOpacity style={styles.nextButton}
+                                onPress={()=>{
+                                    navigation.navigate('ToDoList');
+                                }}
+                                >
                                     <Icon4
                                         name="drink"
                                         size={35}
                                     />
                                     <Text>Night Life</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.nextButton}>
+                                <TouchableOpacity style={styles.nextButton}
+                                onPress={()=>{
+                                    navigation.navigate('ToDoList');
+                                }}
+                                >
                                     <Icon4
                                         name="map"
                                         size={35}
@@ -107,7 +135,7 @@ class DuringFlight extends Component {
 
             </SafeAreaView>
         );
-    }
+    
 }
 
 const styles = StyleSheet.create({

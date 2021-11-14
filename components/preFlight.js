@@ -1,11 +1,20 @@
 import React from 'react'
 import { Text, View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native'
+import Icon from 'react-native-vector-icons/Fontisto';
 
-const PreFlight = () => {
+function PreFlight({navigation}) {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <TouchableOpacity style={styles.backButton}>
-                <Text style={{ textAlign: 'center' }}>{'<'}</Text>
+        <SafeAreaView style={{ flex: 1, backgroundColor:"white" }}>
+            <TouchableOpacity style={styles.backButton}
+            onPress={()=>{
+                navigation.navigate('MainScreen');
+            }}
+            >
+                <Icon
+                    name="arrow-left-l"
+                    color="white"
+                    size={35}
+                />
             </TouchableOpacity>
             <View style={{flex: 1}}>
                 <View style={styles.headingContainer}>
@@ -126,13 +135,13 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     backButton: {
-        backgroundColor: '#FFD3D5',
-        padding: 10,
-        borderRadius: 50,
-        marginLeft: 15,
-        width: 40,
-        height: 40,
-        //marginTop: 10,
+        backgroundColor: "#C4C4C4",
+        alignItems: 'center',
+        width: 60,
+        marginBottom: 20,
+        marginTop: 20,
+        marginLeft: 20,
+        borderRadius: 10
     },
     addButton: {
         backgroundColor: '#EAE9E9',
