@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import SetUpScreen from './components/setUpScreen';
 
 import {
   SafeAreaView,
@@ -11,14 +12,18 @@ import {
 } from 'react-native';
 
 
-
 function App() {
- 
-    return(
+  
+  
+  //render() {
+    
+    return (
       <SafeAreaView>
-        <Text>Hello, this is Packathon</Text>
+        
+       <SetUpScreen/>
       </SafeAreaView>
-      
+
     );
+  //}
 }
 export default App;
