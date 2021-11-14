@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import SetUpScreen from './components/setUpScreen';
 import PreFlight from './components/preFlight';
-//import PreFlight2 from './components/preFlight2';
 
 import {
   SafeAreaView,
@@ -12,15 +12,18 @@ import {
   View,
 } from 'react-native';
 
-
-
 function App() {
- 
-    return(
+  
+  
+  //render() {
     
-        <PreFlight/>
-    
-      
+    return (
+      <SafeAreaView>
+        
+       <SetUpScreen/>
+      </SafeAreaView>
+
     );
+  //}
 }
 export default App;
