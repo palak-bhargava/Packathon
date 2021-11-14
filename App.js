@@ -1,5 +1,6 @@
 import React from 'react';
 import PreFlight from './components/preFlight';
+//import PreFlight2 from './components/preFlight2';
 
 import {
   SafeAreaView,
