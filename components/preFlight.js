@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, TextInput } from 'react-native'
+import { Text, View, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native'
 
 const PreFlight = () => {
     return (
@@ -14,8 +14,9 @@ const PreFlight = () => {
                 <Text style={styles.subheading}>travel essentials
                 
                 </Text>
-                <TouchableOpacity style={styles.addButton}>
-                        <Text style={{ textAlign: 'center' }}>{'+'}</Text>
+                <TouchableOpacity style={styles.imageButton}>
+                        <Image source={require('../assets/plusDark.png')}
+                        style={{ width: 30, height: 30}}/>
                     </TouchableOpacity>
                 
 
@@ -37,12 +38,14 @@ const PreFlight = () => {
             <View style={{ flexDirection: 'row', marginTop: 30}}>
                 <Text style={styles.subheading}>errands
                 </Text>
-                <TouchableOpacity style={styles.addButton}>
-                        <Text style={{ textAlign: 'center' }}>{'+'}</Text>
+                <TouchableOpacity style={styles.imageButton}>
+                        <Image source={require('../assets/plusDark.png')}
+                        style={{ width: 30, height: 30}}/>
                     </TouchableOpacity>
             </View>
 
             <ScrollView style={styles.todoContainer}>
+                
                 <View style={styles.todo}>
                     <TextInput style={styles.userInput} placeholder='Water the plants' />
                 </View>
@@ -61,11 +64,10 @@ const PreFlight = () => {
                 <View style={styles.todo}>
                     <TextInput style={styles.userInput} placeholder='Take out the trash' />
                 </View>
+                
             </ScrollView>
 
-
         </SafeAreaView>
-
     )
 }
 
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
 
     heading: {
         color: 'black',
-        fontSize: 40,
+        fontSize: 35,
         fontWeight: '300',
         textAlign: 'left',
         marginLeft: 40,
@@ -87,16 +89,18 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
         //alignItems: 'center',
         marginTop: 30,
+        width: 250,
+        height: 300,
     },
     subheading: {
         color: 'black',
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: '300',
         marginLeft: 40,
     },
     todoContainer: {
         marginTop: 10,
-
+    
     },
     todo: {
         marginTop: 10,
@@ -120,7 +124,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     addButton: {
-        backgroundColor: '#FFD3D5',
+        backgroundColor: '#EAE9E9',
         padding: 10,
         borderRadius: 50,
         marginLeft: 30,
@@ -128,6 +132,14 @@ const styles = StyleSheet.create({
         height: 30,
        
     },
+    imageButton: {
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginLeft: 10,
+
+    }
 
 })
 export default PreFlight
