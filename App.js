@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import SetUpScreen from './components/setUpScreen';
+import PreFlight from './components/preFlight';
 
 import {
   SafeAreaView,
@@ -10,7 +11,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 
 function App() {
   
