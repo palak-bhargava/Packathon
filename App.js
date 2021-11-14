@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import SetUpScreen from './components/setUpScreen';
 
-
 import {
   SafeAreaView,
   ScrollView,
