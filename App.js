@@ -14,10 +14,10 @@ import {
 } from 'react-native';
 
 
-export default class App extends Component {
+function App() {
   
   
-  render() {
+  //render() {
     
     return (
       <SafeAreaView>
@@ -26,6 +26,6 @@ export default class App extends Component {
       </SafeAreaView>
 
     );
-  }
+  //}
 }
-
+export default App;
