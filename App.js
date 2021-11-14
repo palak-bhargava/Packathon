@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import SetUpScreen from './components/setUpScreen';
 
+
 import {
   SafeAreaView,
   ScrollView,
@@ -12,18 +13,18 @@ import {
 } from 'react-native';
 
 
-export default class App extends Component {
+function App() {
   
   
-  render() {
+  //render() {
     
     return (
       <SafeAreaView>
         
-        <SetUpScreen/>
+       <SetUpScreen/>
       </SafeAreaView>
 
     );
-  }
+  //}
 }
-
+export default App;

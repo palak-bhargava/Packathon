@@ -8,42 +8,49 @@ import {
     TextInput,
     StyleSheet,
     Text,
-    useColorScheme,
+    ImageBackground,
     View,
+    Dimensions
 } from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 class SetUpScreen extends Component {
     render() {
         return (
             <SafeAreaView>
-                <View style={styles.container}>
-                    <Text style={styles.heading}>Let's get you started!</Text>
-                    <View >
-                        <Text style={styles.subheading}>What is your name?</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TextInput style={styles.textInput1} placeholder="firstname" />
-                        <TextInput style={styles.textInput1} placeholder="lastname" />
-                    </View>
-                    <View >
-                        <Text style={styles.subheading}>What is your flight number? </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TextInput style={styles.textInput2} placeholder="fligh number">
-                            <Icon2
-                                name="airplane"
-                                size={35}
-                            />
-                        </TextInput>
+                <ImageBackground source={require('../assets/images/background.png')} style={styles.background}>
+                    <View style={styles.container}>
+                        <Text style={styles.heading}>Let's get you started!</Text>
+                        <View >
+                            <Text style={styles.subheading}>What is your name?</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <TextInput style={styles.textInput1} placeholder="firstname" />
+                            <TextInput style={styles.textInput1} placeholder="lastname" />
+                        </View>
+                        <View >
+                            <Text style={styles.subheading}>What is your flight number? </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <TextInput style={styles.textInput2} placeholder="fligh number">
+                                <Icon2
+                                    name="airplane"
+                                    size={35}
+                                />
+                            </TextInput>
 
+                        </View>
+                        <TouchableOpacity style={styles.nextButton}>
+                            <Icon
+                                name="arrow-right-l"
+                                size={40}
+                            />
+                        </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={styles.nextButton}>
-                        <Icon
-                            name="arrow-right-l"
-                            size={35}
-                        />
-                    </TouchableOpacity>
-                </View>
+                </ImageBackground>
+
             </SafeAreaView>
         );
     }
@@ -82,7 +89,11 @@ const styles = StyleSheet.create({
     },
     nextButton: {
         marginLeft: 277,
-        marginTop: 50
+        marginTop: 40
+    },
+    background:{
+        width: windowWidth,
+        height:windowHeight
     }
 });
 
