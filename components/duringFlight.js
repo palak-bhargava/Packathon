@@ -12,15 +12,17 @@ import {
     Text,
     ImageBackground,
     View,
+    Dimensions
 } from 'react-native';
 
 const favorites = ['Place A', 'Place B', 'Place C', 'Place D', 'Place E'];
 //favorites.push("Place D");
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const Item = ({ place }) => (
     <View style={styles.item}>
-        <Text style={styles.testStyle}>{place}</Text>
+        <Text style={styles.textStyle}>{place}</Text>
     </View>
 );
 const renderItem = ({ item }) => (
@@ -32,72 +34,77 @@ class DuringFlight extends Component {
     render() {
         return (
             <SafeAreaView>
-                
-                <View style={styles.container}>
-                <TouchableOpacity style={styles.backButton}>
-                            <Icon
-                                name="arrow-left-l"
-                                color="grey"
-                                size={35}
-                            />
-                        </TouchableOpacity>
+                <View>
+                    <ImageBackground source={require('../assets/images/background.png')} style={styles.background}>
+                        <View style={styles.container}>
+                            <TouchableOpacity style={styles.backButton}>
+                                <Icon
+                                    name="arrow-left-l"
+                                    color="grey"
+                                    size={35}
+                                />
+                            </TouchableOpacity>
 
-                    <Text style={styles.heading}>What are you looking to do tonight?</Text>
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Icon2
-                                name="restaurant"
-                                size={35}
-                            />
-                            <Text>Restaurant</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Icon2
-                                name="location"
-                                size={35}
-                            />
-                            <Text>Sights</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Icon
-                                name="shopping-bag-1"
-                                size={35}
-                            />
-                            <Text>Shopping</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Icon3
-                                name="beach"
-                                size={35}
-                            />
-                            <Text>Beach</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Icon4
-                                name="drink"
-                                size={35}
-                            />
-                            <Text>Night Life</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.nextButton}>
-                            <Icon4
-                                name="map"
-                                size={35}
-                            />
-                            <Text>Historical</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View>
-                        <Text style={styles.heading}>Your Current Plan:</Text>
-                        <View>
-                            <FlatList
-                                data={favorites}
-                                renderItem={renderItem}
-                                keyExtractor={item => item}
-                            />
+                            <Text style={styles.heading}>What are you looking to do tonight?</Text>
+                            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+                                <TouchableOpacity style={styles.nextButton}>
+                                    <Icon2
+                                        name="restaurant"
+                                        size={35}
+                                    />
+                                    <Text>Restaurant</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.nextButton}>
+                                    <Icon2
+                                        name="location"
+                                        size={35}
+                                    />
+                                    <Text>Sights</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.nextButton}>
+                                    <Icon
+                                        name="shopping-bag-1"
+                                        size={35}
+                                    />
+                                    <Text>Shopping</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.nextButton}>
+                                    <Icon3
+                                        name="beach"
+                                        size={35}
+                                    />
+                                    <Text>Beach</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.nextButton}>
+                                    <Icon4
+                                        name="drink"
+                                        size={35}
+                                    />
+                                    <Text>Night Life</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.nextButton}>
+                                    <Icon4
+                                        name="map"
+                                        size={35}
+                                    />
+                                    <Text>Historical</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <View>
+                                <Text style={styles.heading}>Your Current Plan:</Text>
+                                <View>
+                                    <FlatList
+                                        data={favorites}
+                                        renderItem={renderItem}
+                                        keyExtractor={item => item}
+                                    />
+                                </View>
+                            </View>
                         </View>
-                    </View>
+
+                    </ImageBackground>
                 </View>
+
             </SafeAreaView>
         );
     }
@@ -136,14 +143,16 @@ const styles = StyleSheet.create({
         marginRight: 15,
         marginTop: 10
     },
-    testStyle: {
-        fontSize: 20
+    textStyle: {
+        fontSize: 20,
+        color: "black",
+        fontWeight: "500"
     },
     item: {
-        backgroundColor: "#FFD3D5",
+        backgroundColor: "rgba(255, 211, 213, 0.7)",
         padding: 10,
         borderRadius: 10,
-        margin: 5,
+        margin: 7,
     },
     backButton: {
         backgroundColor: "#FFD3D5",
@@ -151,6 +160,10 @@ const styles = StyleSheet.create({
         width: 60,
         marginBottom: 20,
         borderRadius: 10
+    },
+    background:{
+        width: windowWidth,
+        height:windowHeight
     }
 });
 
