@@ -1,4 +1,5 @@
 import React from 'react';
+import MainScreen from './components/mainScreen';
 
 import {
   SafeAreaView,
@@ -16,7 +17,7 @@ function App() {
  
     return(
       <SafeAreaView>
-        <Text>Hello, this is Packathon</Text>
+        <MainScreen/>
       </SafeAreaView>
       
     );
