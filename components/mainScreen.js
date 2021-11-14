@@ -84,8 +84,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFD3D5",
         alignItems: 'center',
         width: 60,
-        marginBottom: 20,
+        marginBottom: 10,
         marginLeft: 20,
+        marginTop: 20,
         borderRadius: 10
     },
     weather: {
